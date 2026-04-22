@@ -16,6 +16,11 @@ namespace Banking_Digital_Onboarding.Controllers
         [HttpPost]
         public IActionResult Apply(CustomerApplication model)
         {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+            
             TempData["SuccessMessage"] = $"Sayın {model.FullName}, {model.ApplicationType} başvurunuz başarıyla alındı! ";
 
             return RedirectToAction("Apply");

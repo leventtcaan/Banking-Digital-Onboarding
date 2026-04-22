@@ -15,16 +15,19 @@
                 <div class="mb-3">
                     <label asp-for="FullName" class="form-label">Adınız Soyadınız</label>
                     <input asp-for="FullName" class="form-control" placeholder="Kimlikteki gibi giriniz" />
+                    <span asp-validation-for="FullName" class="text-danger fw-bold"></span>
                 </div>
 
                 <div class="mb-3">
                     <label asp-for="NationId" class="form-label">TC Kimlik Numarası</label>
                     <input asp-for="NationId" class="form-control" placeholder="11 Haneli TC Kimlik Numaranız" />
+                    <span asp-validation-for="NationId" class="text-danger fw-bold"></span>
                 </div>
 
                 <div class="mb-3">
                     <label asp-for="MonthlyIncome" class="form-label">Aylık Net Geliriniz (TL)</label>
                     <input asp-for="MonthlyIncome" class="form-control" type="number" placeholder="Örn: 45000" />
+                    <span asp-validation-for="MonthlyIncome" class="text-danger fw-bold"></span>
                 </div>
 
                 <div class="mb-3">
@@ -35,6 +38,7 @@
                         <option value="Ihtiyac Kredisi">İhtiyaç Kredisi</option>
                         <option value="Vadesiz Hesap">Vadesiz Hesap Açılışı</option>
                     </select>
+                    <span asp-validation-for="ApplicationType" class="text-danger fw-bold"></span>
                 </div>
 
                 <button type="submit" class="btn btn-success w-100 fs-5">Başvuruyu Tamamla</button>
@@ -45,7 +49,7 @@
 
 @if (TempData["SuccessMessage"] != null)
 {
-    <div class="alert alert-success alert-dismissible fade show shadow-sm" role="alert">
+    <div class="mt-3 alert alert-success alert-dismissible fade show shadow-sm" role="alert">
             <i class="bi bi-check-circle-fill me-2"></i> @TempData["SuccessMessage"]
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
