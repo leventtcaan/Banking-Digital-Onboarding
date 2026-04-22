@@ -1,0 +1,25 @@
+@model Banking_Digital_Onboarding.Models.CustomerApplication
+
+@{
+    ViewData["Title"] = "Başvuru Detayı";
+}
+
+<div class="container mt-5">
+    <div class="card shadow border-0 w-50 mx-auto">
+        <div class="card-header bg-primary text-white">
+            <h4 class="mb-0">Müşteri Başvuru Detayı - #@Model.Id</h4>
+        </div>
+        <div class="card-body">
+            <ul class="list-group list-group-flush fs-5">
+                <li class="list-group-item"><strong>Ad Soyad:</strong> @Model.FullName</li>
+                <li class="list-group-item"><strong>TC Kimlik:</strong> @Model.NationId</li>
+                <li class="list-group-item"><strong>Aylık Gelir:</strong> @Model.MonthlyIncome.ToString("C") </li>
+                <li class="list-group-item"><strong>Başvuru Tipi:</strong> @Model.ApplicationType</li>
+            </ul>
+        </div>
+        <div class="card-footer text-center">
+            <a asp-controller="Admin" asp-action="Index" class="btn btn-secondary">Listeye Geri Dön</a>
+            <button class="btn btn-success">Başvuruyu Onayla</button>
+        </div>
+    </div>
+</div>
