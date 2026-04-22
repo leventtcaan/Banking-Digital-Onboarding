@@ -1,4 +1,4 @@
-namespace Banking_Digital_Onboarding
+namespace Banking_Digital_Onboarding.Models
 {
       public class CustomerApplication
     {

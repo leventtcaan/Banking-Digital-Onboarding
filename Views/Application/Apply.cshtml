@@ -1,0 +1,52 @@
+@model Banking_Digital_Onboarding.Models.CustomerApplication
+
+@{
+    ViewData["Title"] = "Yeni Başvuru";
+}
+
+<div class="container mt-5">
+    <div class="card shadow-lg border-0">
+        <div class="card-header bg-success text-white">
+            <h3 class="mb-0">Garanti BBVA - Dijital Kredi Kartı Başvurusu</h3>
+        </div>
+        <div class="card-body">
+            <form asp-controller="Application" asp-action="Apply" method="post">
+                
+                <div class="mb-3">
+                    <label asp-for="FullName" class="form-label">Adınız Soyadınız</label>
+                    <input asp-for="FullName" class="form-control" placeholder="Kimlikteki gibi giriniz" />
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="NationId" class="form-label">TC Kimlik Numarası</label>
+                    <input asp-for="NationId" class="form-control" placeholder="11 Haneli TC Kimlik Numaranız" />
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="MonthlyIncome" class="form-label">Aylık Net Geliriniz (TL)</label>
+                    <input asp-for="MonthlyIncome" class="form-control" type="number" placeholder="Örn: 45000" />
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="ApplicationType" class="form-label">Başvuru Tipi</label>
+                    <select asp-for="ApplicationType" class="form-select">
+                        <option value="">Lütfen Seçiniz</option>
+                        <option value="Kredi Karti">Kredi Kartı</option>
+                        <option value="Ihtiyac Kredisi">İhtiyaç Kredisi</option>
+                        <option value="Vadesiz Hesap">Vadesiz Hesap Açılışı</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-success w-100 fs-5">Başvuruyu Tamamla</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show shadow-sm" role="alert">
+            <i class="bi bi-check-circle-fill me-2"></i> @TempData["SuccessMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+}
