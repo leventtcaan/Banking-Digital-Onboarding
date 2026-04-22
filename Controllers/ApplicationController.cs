@@ -20,7 +20,7 @@ namespace Banking_Digital_Onboarding.Controllers
             {
                 return View(model);
             }
-            
+            Repository.AddApplication(model);
             TempData["SuccessMessage"] = $"Sayın {model.FullName}, {model.ApplicationType} başvurunuz başarıyla alındı! ";
 
             return RedirectToAction("Apply");
